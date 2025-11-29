@@ -1,0 +1,69 @@
+configuration {
+	font: "JetBrainsMono Nerd Font Mono 12";
+	show-icons: true;
+
+	drun {
+		display-name: "Whatcha lookin' For? ";
+	}
+
+	timeout {
+		delay: 10;
+		action: "kb-cancel";
+		}
+}
+
+@theme "DarkTheme"
+ *{
+ 	border: 0;
+	margin: 0;
+	padding: 0;
+	spacing: 0;
+
+	bg: #282828;
+	bg-alt: #32302F;
+	fg: #EBDBB2;
+	fg-alt: #5C5653;
+ 	accent:   #D8A657;
+    urgent:   #CC241D;
+
+	background-color: @bg;
+	text-color: @fg;
+}
+
+window {
+	transparency: "real";
+}
+
+mainbox {
+	children: [inputbar, listview];
+}
+
+inputbar {
+	children: [prompt, entry];
+}
+
+entry {
+	padding: 12px;
+}
+
+prompt {
+	padding: 12px;
+	text-color: @accent;
+}
+
+listview {
+	lines: 6;
+}
+
+element {
+	children: [element-text];
+}
+
+element-text {
+	padding: 12px;
+	text-color: @fg-alt;
+}
+
+element-text selected {
+	text-color: @fg;
+}
