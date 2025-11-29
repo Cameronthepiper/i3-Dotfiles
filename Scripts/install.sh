@@ -48,6 +48,8 @@ packages=(
     pv
     htop
     gnome-terminal
+    yay
+    nerd-fonts
 )
 
 echo "Checking for missing packages..."
@@ -78,6 +80,7 @@ fi
 ln -sf "$DOTFILES/Bash Config/bashrc" ~/.bashrc
 ln -sf "$DOTFILES/Bash Config/terminal.txt" ~/Documents/Ascii-Art/terminal.txt
 ln -sf "$DOTFILES/i3-Config/config" ~/.config/i3/config
+ln -sf "$DOTFILES/i3-Config/lock.sh" ~/.config/i3/lock.sh
 ln -sf "$DOTFILES/Polybar Config/config.ini" ~/.config/polybar/config.ini
 ln -sf "$DOTFILES/Polybar Config/launch.sh" ~/.config/polybar/launch.sh
 ln -sf "$DOTFILES/Rofi Config/config.rasi" ~/.config/rofi/config.rasi
@@ -85,6 +88,8 @@ ln -sf "$DOTFILES/Alacritty Config/alacritty.toml" ~/.config/alacritty/alacritty
 
 # Make launch scripts executable
 chmod +x ~/.config/polybar/launch.sh
+
+chmod +x ~/.config/i3/config/lock.sh
 
 # Check for essential programs
 for cmd in i3 polybar rofi alacritty; do
