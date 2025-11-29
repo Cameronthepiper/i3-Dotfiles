@@ -220,3 +220,6 @@ exec --no-startup-id nitrogen --restore
 
 # Setup Lock and Lock Scrren Shortcut
 bindsym $mod+l exec --no-startup-id ~/.config/i3/lock.sh
+
+# Set up for Screenshots using Scrot
+bindsym Print exec scrot ~/Pictures/Screenshots/screenshot-%Y-%m-%d-%H%M%S.png
