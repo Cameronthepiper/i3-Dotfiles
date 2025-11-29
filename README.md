@@ -1,7 +1,6 @@
 # i3 Dotfiles
-Repo for my Gruvbox themed i3 Dotfiles to share between devices.
 
-Dotfiles will include:
+Dotfiles include:
  - i3 Config
      - including lock.sh
  - Polybar Config
