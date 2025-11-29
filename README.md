@@ -7,3 +7,8 @@ Dotfiles will include:
      - including Setup.sh
  - Rofi Config
  - Alacritty Config
+
+## Prerequisites
+- Picom
+- Nitrogen (for wallpapers)
+- 
