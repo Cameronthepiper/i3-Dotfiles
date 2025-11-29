@@ -8,7 +8,7 @@ Dotfiles will include:
  - Rofi Config
  - Alacritty Config
 
-## Prerequisites
+## Other Prerequisites
 - Picom
 - Nitrogen (for wallpapers)
-- 
+- JetBrainsMono Nerd Fonts
