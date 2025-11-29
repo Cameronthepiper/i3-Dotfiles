@@ -3,12 +3,17 @@ Repo for my i3 Dotfiles to share between devices. The dotfiles are Gruvbox theme
 
 Dotfiles will include:
  - i3 Config
+     - including lock.sh
  - Polybar Config
      - including Setup.sh
  - Rofi Config
  - Alacritty Config
 
 ## Other Prerequisites
+The other required packages for this set of dotfiles will be installed by the install.sh. The only things required on a fresh install of Arch or Manjaro will be to carry out a Sudo Pacman -Syu, then install i3-wm, git & i3-gaps.
+
+### Packages included during install
 - Picom
 - Nitrogen (for wallpapers)
 - JetBrainsMono Nerd Fonts
+- 
