@@ -13,7 +13,20 @@ Dotfiles will include:
 The other required packages for this set of dotfiles will be installed by the install.sh. The only things required on a fresh install of Arch or Manjaro will be to carry out a Sudo Pacman -Syu, then install i3-wm, git & i3-gaps.
 
 ### Packages included during install
-- Picom
-- Nitrogen (for wallpapers)
 - JetBrainsMono Nerd Fonts
-- 
+- fakeroot
+- base-devel
+- i3lock-color
+- picom
+- nitrogen
+- rofi
+- polybar
+- alacritty
+- pv
+- htop
+- gnome-terminal
+- imagemagick
+- scrot
+- yay
+
+## Screenshots
