@@ -1,5 +1,8 @@
 #!/usr/bin/env bash
 
+# ----------------------------
+# CONFIG PATHS
+# ----------------------------
 DOTFILES="$HOME/i3-Dotfiles"
 BACKUP="$HOME/Dotfiles-Backup"
 
@@ -9,7 +12,9 @@ if [ ! -d "$DOTFILES" ]; then
     exit 1
 fi
 
-# Create config and backup directories
+# ----------------------------
+# CREATE CONFIG AND BACKUP DIRS
+# ----------------------------
 mkdir -p ~/.config/i3
 mkdir -p ~/.config/polybar
 mkdir -p ~/.config/rofi
@@ -17,7 +22,9 @@ mkdir -p ~/.config/alacritty
 mkdir -p ~/Documents/Ascii-Art
 mkdir -p "$BACKUP"
 
-# Function to backup existing files
+# ----------------------------
+# FUNCTION TO BACKUP FILES
+# ----------------------------
 backup_file() {
     if [ -e "$1" ]; then
         mv "$1" "$BACKUP/$(basename "$1").backup"
@@ -33,11 +40,12 @@ backup_file ~/.config/polybar/launch.sh
 backup_file ~/.config/rofi/config.rasi
 backup_file ~/.config/alacritty/alacritty.toml
 backup_file ~/Documents/Ascii-Art/terminal.txt
+backup_file ~/.config/i3/lock.sh
 
 # ----------------------------
-# Install dependencies (Arch/Manjaro)
+# PACMAN PACKAGES
 # ----------------------------
-packages=(
+pacman_packages=(
     fakeroot
     base-devel
     picom
@@ -48,12 +56,12 @@ packages=(
     pv
     htop
     gnome-terminal
-    yay
-    nerd-fonts
+    imagemagick
+    scrot
 )
 
-echo "Checking for missing packages..."
-for pkg in "${packages[@]}"; do
+echo "Installing missing pacman packages..."
+for pkg in "${pacman_packages[@]}"; do
     if ! pacman -Qi $pkg &> /dev/null; then
         echo "Installing $pkg..."
         sudo pacman -S --needed --noconfirm $pkg
@@ -62,20 +70,36 @@ for pkg in "${packages[@]}"; do
     fi
 done
 
-# Install Nerd Fonts (e.g., FiraCode Nerd Font) via yay if available
-if command -v yay &> /dev/null; then
-    if ! pacman -Qi ttf-fira-code-nerd &> /dev/null; then
-        echo "Installing FiraCode Nerd Font..."
-        yay -S --needed --noconfirm ttf-fira-code-nerd
-    else
-        echo "FiraCode Nerd Font already installed."
-    fi
-else
-    echo "Warning: 'yay' not found. Please install Nerd Fonts manually."
+# ----------------------------
+# AUR PACKAGES VIA YAY
+# ----------------------------
+aur_packages=(
+    "yay"
+    "i3lock-color"               # Pixelated lockscreen
+    "ttf-jetbrains-mono-nerd"    # Nerd Font for i3/polybar/rofi
+)
+
+# Install yay if missing
+if ! command -v yay &> /dev/null; then
+    echo "Installing yay from AUR..."
+    git clone https://aur.archlinux.org/yay.git /tmp/yay
+    cd /tmp/yay || exit
+    makepkg -si --noconfirm
+    cd ~ || exit
 fi
 
+echo "Installing AUR packages..."
+for pkg in "${aur_packages[@]}"; do
+    if ! pacman -Qi $pkg &> /dev/null; then
+        echo "Installing $pkg via yay..."
+        yay -S --needed --noconfirm $pkg
+    else
+        echo "$pkg is already installed."
+    fi
+done
+
 # ----------------------------
-# Symlink configs
+# SYMLINK CONFIGS
 # ----------------------------
 ln -sf "$DOTFILES/Bash Config/bashrc" ~/.bashrc
 ln -sf "$DOTFILES/Bash Config/terminal.txt" ~/Documents/Ascii-Art/terminal.txt
@@ -86,17 +110,20 @@ ln -sf "$DOTFILES/Polybar Config/launch.sh" ~/.config/polybar/launch.sh
 ln -sf "$DOTFILES/Rofi Config/config.rasi" ~/.config/rofi/config.rasi
 ln -sf "$DOTFILES/Alacritty Config/alacritty.toml" ~/.config/alacritty/alacritty.toml
 
-# Make launch scripts executable
+# Make launch and lock scripts executable
 chmod +x ~/.config/polybar/launch.sh
+chmod +x ~/.config/i3/lock.sh
 
-chmod +x ~/.config/i3/config/lock.sh
-
-# Check for essential programs
-for cmd in i3 polybar rofi alacritty; do
+# ----------------------------
+# FINAL CHECKS
+# ----------------------------
+for cmd in i3 polybar rofi alacritty i3lock; do
     if ! command -v $cmd &> /dev/null; then
         echo "Warning: $cmd is not installed. Please install it."
     fi
 done
 
-echo "Dotfiles installed and symlinked successfully! 🚀"
+echo "------------------------------------------------"
+echo "✅ Dotfiles installed and symlinked successfully!"
 echo "Backups of previous configs are in $BACKUP"
+echo "------------------------------------------------"
