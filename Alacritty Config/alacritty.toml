@@ -1,0 +1,59 @@
+#        __             _ __  __
+#  ___ _/ /__ _________(_) /_/ /___ __
+# / _ `/ / _ `/ __/ __/ / __/ __/ // /
+# \_,_/_/\_,_/\__/_/ /_/\__/\__/\_, /
+#                              /___/
+
+[window]
+
+opacity = 0.9
+
+padding.x = 10
+padding.y = 10
+
+decorations = "none"
+decorations_theme_variant = "Light" # "Dark"
+
+[colors.primary]
+background = '#282828'
+foreground = '#EBDBB2'
+
+[colors.normal]
+black   = '#282828'
+red     = '#CC241D'
+green   = '#98971A'
+yellow  = '#D8A657'
+blue    = '#458588'
+magenta = '#B16286'
+cyan    = '#689D6A'
+white   = '#EBDBB2'
+
+[colors.bright]
+black   = '#3C3836'
+red     = '#9D0006'
+green   = '#79740E'
+yellow  = '#CE8245'
+blue    = '#3D6A73'
+magenta = '#8F3F71'
+cyan    = '#427B58'
+white   = '#F2E5BC'
+
+
+[font]
+size = 7.0
+
+[font.normal]
+family = "JetBrainsMono Nerd Font Mono"
+style = "Medium"
+
+[font.bold]
+family = "JetBrainsMono Nerd Font Mono"
+style = "Bold"
+
+[font.italic]
+family = "JetBrainsMono Nerd Font Mono"
+style = "Italic"
+
+[font.bold_italic]
+family = "JetBrainsMono Nerd Font Mono"
+style = "Bold Italic"
