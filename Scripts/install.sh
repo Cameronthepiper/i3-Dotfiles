@@ -47,6 +47,7 @@ packages=(
     alacritty
     pv
     htop
+    gnome-terminal
 )
 
 echo "Checking for missing packages..."
