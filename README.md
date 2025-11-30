@@ -31,4 +31,5 @@ It is preferred that prior to running the installation script the user installs 
 ## Screenshots
 <img width="1920" height="1080" alt="screenshot-2025-11-29-200921" src="https://github.com/user-attachments/assets/264e6d99-dfbf-463d-8d1b-1a4ddd0b7e6e" />
 <img width="1920" height="1080" alt="screenshot-2025-11-29-200951" src="https://github.com/user-attachments/assets/e743c59c-e5be-47b0-8ff5-70bd4f04346b" />
+<img width="1920" height="1080" alt="screenshot-2025-11-30-083941" src="https://github.com/user-attachments/assets/1acb68cf-8768-4dad-87ea-24fdda1332ac" />
 
