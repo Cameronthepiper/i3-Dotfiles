@@ -58,6 +58,8 @@ pacman_packages=(
     gnome-terminal
     imagemagick
     scrot
+    zathura
+    zathura-pdf-mupdf
 )
 
 echo "Installing missing pacman packages..."
@@ -109,6 +111,7 @@ ln -sf "$DOTFILES/Polybar Config/config.ini" ~/.config/polybar/config.ini
 ln -sf "$DOTFILES/Polybar Config/launch.sh" ~/.config/polybar/launch.sh
 ln -sf "$DOTFILES/Rofi Config/config.rasi" ~/.config/rofi/config.rasi
 ln -sf "$DOTFILES/Alacritty Config/alacritty.toml" ~/.config/alacritty/alacritty.toml
+ln -sf "$DOTFILES/Zathura Config/zathurarc" ~/.config/zathura/zathurarc
 
 # Make launch and lock scripts executable
 chmod +x ~/.config/polybar/launch.sh
