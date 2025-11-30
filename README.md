@@ -17,7 +17,7 @@ It is preferred that prior to running the installation script the user installs 
 - base-devel
 - i3lock-color
 - picom
-- nitrogen
+- nitrogen (for wallpapers)
 - rofi
 - polybar
 - alacritty
@@ -25,8 +25,9 @@ It is preferred that prior to running the installation script the user installs 
 - htop
 - gnome-terminal
 - imagemagick
-- scrot
+- scrot (for screenshots)
 - yay
+- zathura (for .pdf and .epub)
 
 ## Screenshots
 <img width="1920" height="1080" alt="screenshot-2025-11-29-200921" src="https://github.com/user-attachments/assets/264e6d99-dfbf-463d-8d1b-1a4ddd0b7e6e" />
